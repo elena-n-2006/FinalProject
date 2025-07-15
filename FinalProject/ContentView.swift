@@ -11,12 +11,13 @@ struct ContentView: View {
     var body: some View {
         NavigationStack{
             ZStack {
-                VStack {
-                    Text("Make a blog")
-                    Spacer()
-                    Text("Fun Fact of the Day:")
-                    Spacer()
-                    Text("Here's your emoji chart of the week")
+                HStack{
+                    
+                    VStack {
+                        Text("Make a blog")
+                        Text("Fun Fact of the Day:")
+                        Text("Here's your emoji chart of the week")
+                    }
                 }
             }
             .padding()
