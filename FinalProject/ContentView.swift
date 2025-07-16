@@ -18,13 +18,16 @@ struct ContentView: View {
                         Text("Fun Fact of the Day:")
                         Text("Here's your emoji chart of the week")
                         Text("test")
+                        
+                        NavigationLink(destination: BrainFact()) {
+                            Text("Show Me a Brain Fact")
+                        }
                     }
                 }
+                .padding()
             }
-            .padding()
         }
-    }
-}
+    }}
 
 #Preview {
     ContentView()
