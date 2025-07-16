@@ -5,44 +5,34 @@
 //  Created by Gianna on 7/16/25.
 //
 
-
 import SwiftUI
 
 struct BrainFact: View {
-    @State private var goToFacts = false
+    let facts = [
+        "Your brain uses about 20% of your body’s total energy.",
+        "Neurons in the brain can send signals at over 200 miles per hour.",
+        "The brain itself can't feel pain.",
+        "Memories are reconstructed, not replayed.",
+        "Your brain is sometimes more active when you're asleep."
+    ]
+
     var body: some View {
-        NavigationStack{
-            ZStack {
-                HStack{
-                    
-                    VStack {
-                        Text("Make a blog")
-                        Text("Fun Fact of the Day:")
-                        Text("Here's your emoji chart of the week")
-                    }
-                }
-            
-            }
-            Button(action: {
-                                    goToFacts = true
-            }) {
-                Text("Show Me a Brain Fact")
-                    .font(.headline)
-                    .padding()
-                    .frame(width: 240)
-                    .background(Color.pink)
-                    .foregroundColor(.white)
-                .cornerRadius(12)}
-         
-            NavigationLink(destination: BrainFact()){
-                Text("Show Brain Fact")
-            }
-                                    
-            .padding()
+        VStack(spacing: 20) {
+            Text("🧠 Brain Fact 🧠")
+                .font(.largeTitle)
+                .padding()
+
+            Text(facts.randomElement() ?? "Brains are cool!")
+                .font(.title2)
+                .multilineTextAlignment(.center)
+                .padding()
+
+            Spacer()
         }
+        .padding()
     }
 }
 
 #Preview {
-    ContentView()
+    BrainFact()
 }
