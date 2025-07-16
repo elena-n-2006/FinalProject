@@ -32,7 +32,8 @@ struct ContentView: View {
                         .padding()
                         
                     
-                    Text("Write a blog")
+
+                    Text("Write a blog.")
                         .font(.system(size: 30))
                     NavigationLink(destination: Blog()) {
                         Image(systemName: "pencil")
@@ -51,6 +52,8 @@ struct ContentView: View {
                             .background(Color.white)
                             .foregroundColor(.black)
                             .cornerRadius(8)
+                    
+
                     }
                 }
                 }
