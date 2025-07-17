@@ -73,22 +73,18 @@ struct ContentView: View {
                             Text("test")
                             
                             NavigationLink(destination: BrainFact()) {
-                                Text("Show Me a Brain Fact")
+                                Text("🧠Show Me a Brain Fact")
                             }
                         }
                         
                     }
+                    .padding()
                 }
             }
         }
     }
-    
-    #Preview {
-        ContentView()
-    }
-    
-    
-    
-    
-    
+
+
+#Preview {
+    ContentView()
 }
