@@ -12,18 +12,21 @@ struct BlogPostView: View {
     @State private var newPost = ""
     @State private var newEmoji = ""
     @State private var newDate = Date.now
+    @State private var feelingText = "Choose how you are feeling"
     
     var body: some View {
         VStack{
             Text("Talk about your day")
                 .font(.title)
                 .padding()
-            Menu("Choose how you are feeling") {
-                Text("Test")
-                Text("Test")
-                Text("test")
+            Menu(feelingText) {
+                Button("🥰") {
+                    newEmoji = "🥰"
+                    feelingText = "You chose that you're feeling like \(newEmoji)"
+                }
             }
-            DatePicker(selection: $newDate, label: { Text("Date") })
+            DatePicker(selection: $newDate, in: Date.distantPast...Date.now, displayedComponents: .date)
+            { Text("Date") }
             TextField("How was your day? Write what you want in here", text: $newPost)
                 .padding()
                 .frame(width: 350, height: 130)
