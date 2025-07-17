@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
     var body: some View {
         NavigationStack {
             ZStack {
+
                 // Background gradient
                 LinearGradient(gradient: Gradient(colors: [
                     Color(red: 1.0, green: 0.89, blue: 0.94),
@@ -60,11 +62,25 @@ struct ContentView: View {
                                 .foregroundColor(.black)
                         )
                         .padding(.horizontal)
+
+                HStack{
+                    
+                    VStack {
+                        Text("Make a blog")
+                        Text("Fun Fact of the Day:")
+                        Text("Here's your emoji chart of the week")
+                        Text("test")
+                        
+                        NavigationLink(destination: BrainFact()) {
+                            Text("Show Me a Brain Fact")
+                        }
+                    }
+
                 }
+                .padding()
             }
         }
-    }
-}
+    }}
 
 #Preview {
     ContentView()
