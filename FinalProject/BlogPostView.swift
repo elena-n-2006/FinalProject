@@ -10,9 +10,10 @@ import SwiftData
 
 struct BlogPostView: View {
     @State private var newPost = ""
-    @State private var newEmoji = ""
+    @State private var selectedEmoji = ""
     @State private var newDate = Date.now
     @State private var feelingText = "Choose how you are feeling"
+    @State private var navigateToEmoji = false
     
     var body: some View {
         NavigationStack {
@@ -30,20 +31,24 @@ struct BlogPostView: View {
                     .padding(.top)
                 Menu(feelingText) {
                     Button("🥰") {
-                        newEmoji = "🥰"
-                        feelingText = "You chose that you're feeling like \(newEmoji)"
+                        selectedEmoji += "🥰"
+                        feelingText = "You said that you're feeling like \(selectedEmoji)"
+                        navigateToEmoji = true
                     }
                     Button("🫠") {
-                        newEmoji = "🫠"
-                        feelingText = "You chose that you're feeling like \(newEmoji)"
+                        selectedEmoji += "🫠"
+                        feelingText = "You said that you're feeling like \(selectedEmoji)"
+                        navigateToEmoji = true
                     }
                     Button("😂") {
-                        newEmoji = "😂"
-                        feelingText = "You chose that you're feeling like \(newEmoji)"
+                        selectedEmoji += "😂"
+                        feelingText = "You said that you're feeling like \(selectedEmoji)"
+                        navigateToEmoji = true
                     }
                     Button("😡") {
-                        newEmoji = "😡"
-                        feelingText = "You chose that you're feeling like \(newEmoji)"
+                        selectedEmoji += "😡"
+                        feelingText = "You said that you're feeling like \(selectedEmoji)"
+                        navigateToEmoji = true
                     }
                 }
                 .padding()
@@ -69,11 +74,15 @@ struct BlogPostView: View {
                     .cornerRadius(20)
                     .shadow(radius: 5)
                 
+                NavigationLink(destination: emojiReveal(emoji: selectedEmoji, newDate: $newDate), isActive: $navigateToEmoji) {
+                    EmptyView()
+                }
+                
                 HStack(spacing:30){
                     Button("Save") {
                         //this is for posting it on the feed (which is now going on the emoji chart)
                         newPost = ""
-                        newEmoji = ""
+                        selectedEmoji = ""
                         newDate = Date.now
                     }
                     .buttonStyle(.borderedProminent)
@@ -82,7 +91,7 @@ struct BlogPostView: View {
                     
                     Button("Hide"){
                         newPost = ""
-                        newEmoji = ""
+                        selectedEmoji = ""
                         newDate = Date.now
                     }
                     .buttonStyle(.borderedProminent)
@@ -98,5 +107,3 @@ struct BlogPostView: View {
 #Preview {
     BlogPostView()
 }
-
-//
