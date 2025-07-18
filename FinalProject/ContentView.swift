@@ -49,9 +49,11 @@ struct ContentView: View {
                                 Text("✍️ Make a Blog")
                                     .font(.title2)
                                     .foregroundColor(.black)
-                                Text("Start journaling your thoughts!")
-                                    .font(.subheadline)
-                                    .foregroundColor(.black)
+                                NavigationLink(destination: BlogPostView()) {
+                                    Text("Start journaling your thoughts!")
+                                        .font(.subheadline)
+                                        .foregroundColor(.black)
+                                }
                             }
                         )
                         .padding(.horizontal)
