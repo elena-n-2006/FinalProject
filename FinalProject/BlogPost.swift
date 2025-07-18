@@ -8,6 +8,7 @@
 import Foundation
 import SwiftData
 
+@Model
 class BlogPost {
     var post: String
     var emoji: String
